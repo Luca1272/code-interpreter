@@ -46,11 +46,13 @@ Create a file example.lox with the following content:
 lox
 
 `print "Hello, World!";`
+
 Run the interpreter:
 
 bash
 
 `java -jar LoxInterpreter.jar example.lox`
+
 Expected output:
 
 bash
