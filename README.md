@@ -28,6 +28,7 @@ This repository contains a Kotlin-based interpreter for the Lox scripting langua
 To build the project, use the Kotlin compiler. You can compile the code using the following command:
 
 bash
+
 `kotlinc Main.kt Token.kt TokenType.kt Tokenizer.kt Parser.kt -include-runtime -d LoxInterpreter.jar`
 This command compiles the source files and packages them into a single executable JAR file.
 
@@ -35,6 +36,7 @@ Running the Interpreter
 After building the project, you can run the interpreter with:
 
 bash
+
 `java -jar LoxInterpreter.jar [script.lox]`
 If you do not specify a script file, the interpreter will start in interactive mode, allowing you to enter Lox code directly.
 
@@ -42,14 +44,17 @@ Example
 Create a file example.lox with the following content:
 
 lox
+
 `print "Hello, World!";`
 Run the interpreter:
 
 bash
+
 `java -jar LoxInterpreter.jar example.lox`
 Expected output:
 
 bash
+
 `Hello, World!`
 
 Contributing
