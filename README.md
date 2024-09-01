@@ -1,66 +1,91 @@
 # Lox Interpreter in Kotlin
 
-This repository contains a Kotlin-based interpreter for the Lox scripting language, following the implementation style outlined in Robert Nystrom's book ["Crafting Interpreters"](http://craftinginterpreters.com/). Lox is a simple, dynamically-typed language with a focus on simplicity and expressiveness.
+This project implements an interpreter for the Lox programming language using Kotlin. Lox is a simple, dynamically-typed language designed for learning about interpreter implementation, as described in the book "Crafting Interpreters" by Robert Nystrom.
 
 ## Features
 
-- **Tokenizer/Lexer**: Converts a sequence of characters into a sequence of tokens.
-- **Parser**: Builds a syntax tree from tokens.
-- **Interpreter**: Evaluates the syntax tree to execute Lox programs.
+- **Full implementation of the Lox language**
+- **Tokenization** of Lox source code
+- **Parsing** of Lox expressions and statements
+- **Interpretation and execution** of Lox programs
+- Support for Lox data types: `nil`, `boolean`, `number`, and `string`
+- **Variable declaration and assignment**
+- **Control flow:** `if` statements and `while/for` loops
+- **Functions and closures**
+- **Classes and inheritance**
 
 ## Project Structure
 
-- **`Main.kt`**: The entry point for the interpreter. It initializes the interpreter and handles command-line input.
-- **`Token.kt`**: Defines the structure of a token in the Lox language, including its type and literal value.
-- **`TokenType.kt`**: Enum class listing all possible types of tokens in Lox (keywords, operators, literals, etc.).
-- **`Tokenizer.kt`**: Responsible for breaking up input strings into tokens that the parser can then process.
-- **`Parser.kt`**: Takes tokens produced by the `Tokenizer` and builds an Abstract Syntax Tree (AST) that represents the Lox program.
+The project consists of several Kotlin files:
 
-## Getting Started
+- **`Main.kt`:** Contains the main entry point and command-line interface for the interpreter.
+- **`Interpreter.kt`:** Implements the core interpreter functionality, including tokenization and parsing.
+- **`ASTNode.kt`:** Defines the Abstract Syntax Tree (AST) nodes used to represent the Lox program structure.
+- **`Operator.kt`:** Implements various operators supported by Lox.
+- **`Value.kt`:** Defines the value types supported by Lox.
 
-### Prerequisites
+## Usage
 
-- Kotlin 1.5 or higher
-- A command-line environment
+The interpreter supports four main commands:
 
-### Building the Project
+- **`tokenize`:** Tokenize the input file and print the tokens.
+- **`parse`:** Parse the input file and print the AST.
+- **`evaluate`:** Evaluate the expression in the input file and print the result.
+- **`run`:** Execute the Lox program in the input file.
 
-To build the project, use the Kotlin compiler. You can compile the code using the following command:
+To use the interpreter, run the following command:
+```sh
+./your_program.sh <command> <filename>
+```
+Replace <command> with one of the supported commands (tokenize, parse, evaluate, or run) and <filename> with the path to your Lox source file.
 
-bash
+Lox Language Features
+Variable declaration and assignment: var x = 10;
+Arithmetic operations: +, -, *, /
+Comparison operations: ==, !=, <, <=, >, >=
+Logical operations: and, or, !
+Control flow: if, else, while, for
+Functions: fun name(params) { ... }
+Classes and methods: class Name { ... }
+Inheritance: class Child < Parent { ... }
+Print statements: print "Hello, world!";
+Native functions: clock()
+Example Lox Program
+Here's a simple example of a Lox program:
 
-`kotlinc Main.kt Token.kt TokenType.kt Tokenizer.kt Parser.kt -include-runtime -d LoxInterpreter.jar`
-This command compiles the source files and packages them into a single executable JAR file.
+```lox
+class Greeting {
+  init(name) {
+    this.name = name;
+  }
 
-Running the Interpreter
-After building the project, you can run the interpreter with:
+  sayHello() {
+    print "Hello, " + this.name + "!";
+  }
+}
 
-bash
+var greeting = Greeting("Lox");
+greeting.sayHello();
+```
+Error Handling
+The interpreter includes error handling for various scenarios:
 
-`java -jar LoxInterpreter.jar [script.lox]`
-If you do not specify a script file, the interpreter will start in interactive mode, allowing you to enter Lox code directly.
+Lexical errors during tokenization
+Syntax errors during parsing
+Runtime errors during execution
+Undefined variables or functions
+Type mismatches in operations
+Future Improvements
+Potential areas for enhancement include:
 
-Example
-Create a file example.lox with the following content:
-
-lox
-
-`print "Hello, World!";`
-
-Run the interpreter:
-
-bash
-
-`java -jar LoxInterpreter.jar example.lox`
-
-Expected output:
-
-bash
-
-`Hello, World!`
-
+Implementing a REPL (Read-Eval-Print Loop) for interactive use
+Adding more built-in functions and standard library features
+Improving error reporting with more detailed information
+Optimizing the interpreter for better performance
+Adding support for modules or imports
+Implementing static type checking as an optional feature
 Contributing
-Contributions are welcome! If you'd like to contribute, please fork the repository and make changes as you'd like. Pull requests are warmly welcome.
+Contributions to improve the Lox interpreter are welcome. Please feel free to submit issues or pull requests on the project repository.
 
-Issues
-If you find a bug or have a feature request, please open an issue on GitHub.
+Acknowledgments
+This interpreter is based on the Lox language designed by Robert Nystrom for his book "Crafting Interpreters". The implementation draws inspiration from the book while being adapted for Kotlin.
