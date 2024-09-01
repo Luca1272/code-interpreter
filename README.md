@@ -39,19 +39,19 @@ To use the interpreter, run the following command:
 ```
 Replace <command> with one of the supported commands (tokenize, parse, evaluate, or run) and <filename> with the path to your Lox source file.
 
-##Lox Language Features
--Variable declaration and assignment: var x = 10;
--Arithmetic operations: +, -, *, /
--Comparison operations: ==, !=, <, <=, >, >=
--Logical operations: and, or, !
--Control flow: if, else, while, for
--Functions: fun name(params) { ... }
--Classes and methods: class Name { ... }
--Inheritance: class Child < Parent { ... }
--Print statements: print "Hello, world!";
--Native functions: clock()
--Example Lox Program
--Here's a simple example of a Lox program:
+## Lox Language Features
+- Variable declaration and assignment: var x = 10;
+- Arithmetic operations: +, -, *, /
+- Comparison operations: ==, !=, <, <=, >, >=
+- Logical operations: and, or, !
+- Control flow: if, else, while, for
+- Functions: fun name(params) { ... }
+- Classes and methods: class Name { ... }
+- Inheritance: class Child < Parent { ... }
+- Print statements: print "Hello, world!";
+- Native functions: clock()
+- Example Lox Program
+- Here's a simple example of a Lox program:
 
 ```lox
 class Greeting {
